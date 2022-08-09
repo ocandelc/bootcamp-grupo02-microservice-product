@@ -25,7 +25,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- * Clase para los métodos de la implementación de servicio del cliente.
+ * Clase para los métodos de la implementación de servicio del producto.
  */
 @Service
 public class ProductServiceImpl implements ProductService {

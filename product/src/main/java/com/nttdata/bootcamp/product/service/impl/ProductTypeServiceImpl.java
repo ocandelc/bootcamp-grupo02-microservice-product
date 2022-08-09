@@ -30,11 +30,17 @@ import reactor.core.publisher.Mono;
 @Service
 public class ProductTypeServiceImpl implements ProductTypeService {
 
+    /** Declaración de la variable de log */
     private static final Logger log = LoggerFactory.getLogger(ProductTypeServiceImpl.class);
 
+    /** Declaración de la clase dao */
     @Autowired
     private ProductTypeDao productTypeDao;
 
+    /**
+     * Método que realiza la acción insertar datos del document
+     * @return Mono retorna el ProductType, tipo Mono
+     */
     @Override
     public Mono<ProductType> insert(ProductType productType) {
         return productTypeDao.save(productType)
@@ -43,6 +49,10 @@ public class ProductTypeServiceImpl implements ProductTypeService {
                 .doAfterTerminate(() -> log.info("Finish Insert ProductType"));
     }
 
+    /**
+     * Método que realiza la acción actualizar datos del document
+     * @return Mono retorna el ProductType, tipo Mono
+     */
     @Override
     public Mono<ProductType> update(ProductType productType) {
         return productTypeDao.findById(productType.getId())
@@ -53,6 +63,10 @@ public class ProductTypeServiceImpl implements ProductTypeService {
                 .doAfterTerminate(() -> log.info("Finish Update ProductType"));
     }
 
+    /**
+     * Método que realiza la acción borrar datos del document
+     * @return Mono retorna el Void, tipo Mono
+     */
     @Override
     public Mono<Void> delete(String id) {
         return productTypeDao.deleteById(id)
@@ -61,6 +75,10 @@ public class ProductTypeServiceImpl implements ProductTypeService {
                 .doAfterTerminate(() -> log.info("Finish Delete ProductType"));
     }
 
+    /**
+     * Método que realiza la acción buscar datos por id del document
+     * @return Mono retorna el ProductType, tipo String
+     */
     @Override
     public Mono<ProductType> find(String id) {
         return productTypeDao.findById(id)
@@ -69,6 +87,10 @@ public class ProductTypeServiceImpl implements ProductTypeService {
                 .doAfterTerminate(() -> log.info("Finish Find ProductType"));
     }
 
+    /**
+     * Método que realiza la acción buscar datos por código del document
+     * @return Mono retorna el ProductType, tipo String
+     */
     @Override
     public Mono<ProductType> findByCode(String code) {
         return productTypeDao.findByCode(code)
@@ -77,6 +99,10 @@ public class ProductTypeServiceImpl implements ProductTypeService {
                 .doAfterTerminate(() -> log.info("Finish FindByCode ProductType"));
     }
 
+    /**
+     * Método que realiza la acción buscar todos los datos del document
+     * @return Mono retorna el ProductType, tipo String
+     */
     @Override
     public Flux<ProductType> findAll() {
         return productTypeDao.findAll()
