@@ -24,7 +24,7 @@ import reactor.core.publisher.Mono;
 public interface ProductDao extends ReactiveMongoRepository<Product, String> {
 
     /**
-     * Método que obtiene los datos del document Client
+     * Método que obtiene los datos del document Product
      * @return Mono retorna el Product, tipo Mono
      */
     Mono<Product> findByCode(String code);
